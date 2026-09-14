@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "rules": [
+    { "domain": ["support.apple.com"] },
+    { "domain_suffix": ["support.apple.com"] }
+  ]
+}
