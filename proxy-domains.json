@@ -3,6 +3,6 @@
   "rules": [
     { "domain": ["support.apple.com"] },
     { "domain_suffix": ["support.apple.com"] },
-    { "ip_cidr": ["139.45.207.0/24"] }
+    { "ip_cidr": ["139.45.192.0/19", "87.245.216.0/24"] }
   ]
 }
