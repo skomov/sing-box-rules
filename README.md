@@ -1,6 +1,6 @@
 # sing-box-rules
 
-Личные списки доменов и подсетей для маршрутизации в прокси, поверх общих списков [itdoginfo/allow-domains](https://github.com/itdoginfo/allow-domains).
+Персональные домены и подсети для маршрутизации в прокси поверх подключенного набора [runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat).
 
 Формат — source rule-set sing-box (`version: 3`), подключается как remote `rule_set` без компиляции в `.srs`.
 
@@ -8,11 +8,12 @@
 
 | Файл | Назначение |
 |---|---|
-| `proxy-domains.json` | Домены, которые направлять в прокси |
+| `proxy-domains.json` | Домены и подсети, которые направлять в прокси |
 
 ## Текущий список
 
-- `support.apple.com` — Akamai geo-DNS отдает нашему резолверу эджи в сети UA-RETN (87.245.216.0/24), TCP/443 напрямую не устанавливается; через прокси 200. Обоснование: [репорт в allow-domains](https://github.com/itdoginfo/allow-domains/discussions/75#discussioncomment-18440303). Убрать, когда домен появится в списке itdog.
+- `139.45.192.0/19` и `87.245.216.0/24`: RETN-подсети cloud endpoints приложения камеры. При добавлении endpoints из нескольких `/24` не открывались напрямую и работали через прокси. Широкий `/19` сохраняется до повторного сбора точных активных `/24` и проверки соседних адресов.
+- `support.apple.com` удален из персонального списка: домен покрыт подключенным `geosite-ru-blocked`. Отдельный CIDR для него не требуется, но `87.245.216.0/24` пока остается из-за camera app.
 
 ## Подключение на роутере
 
